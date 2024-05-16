@@ -1,11 +1,11 @@
 using ApiClientPackage;
 using ExamenAppMovilesPozoCarlos.Clases;
+using System;
 
 namespace ExamenAppMovilesPozoCarlos;
 
 public partial class TiendaArticulos : ContentPage
 {
-
     private string ApiUrlArticulos = "https://utnpozocarlosapi20240516115336.azurewebsites.net/api/Articulos";
     private string ApiUrlOrganizaciones = "https://utnpozocarlosapi20240516115336.azurewebsites.net/api/Organizaciones";
 
@@ -19,28 +19,31 @@ public partial class TiendaArticulos : ContentPage
     {
         var articulo = new Articulo
         {
-            // Presumiendo que los campos están disponibles como Entries
             Nombre = txtNombre.Text,
             Existencia = double.Parse(txtExistencia.Text),
             PrecioUnitario = double.Parse(txtPrecioUnitario.Text),
             IVA = double.Parse(txtIVA.Text),
-            OrganizacionId = string.IsNullOrWhiteSpace(txtOrganizacionId.Text) ? null : int.Parse(txtOrganizacionId.Text)
+            OrganizacionId = string.IsNullOrWhiteSpace(txtOrganizacionId.Text) ? (int?)null : int.Parse(txtOrganizacionId.Text)
         };
 
-        var resultado =  ApiConsumer<Articulo>.Create(ApiUrlArticulos, articulo);
+        var resultado =   ApiConsumer<Articulo>.Create(ApiUrlArticulos, articulo);
         if (resultado != null)
         {
-            // Actualizar la interfaz de usuario con los datos del artículo guardado
+            txtIdArticulo.Text = resultado.Id.ToString(); // Asumiendo que hay un txtIdArticulo para mostrar el ID
         }
     }
 
     private async void btnLeerArticulo_Clicked(object sender, EventArgs e)
     {
         int id = int.Parse(txtIdArticulo.Text);
-        var resultado =  ApiConsumer<Articulo>.Read(ApiUrlArticulos, id);
+        var resultado =   ApiConsumer<Articulo>.Read(ApiUrlArticulos, id);
         if (resultado != null)
         {
-            // Actualizar la interfaz de usuario con los datos del artículo leído
+            txtNombre.Text = resultado.Nombre;
+            txtExistencia.Text = resultado.Existencia.ToString();
+            txtPrecioUnitario.Text = resultado.PrecioUnitario.ToString();
+            txtIVA.Text = resultado.IVA.ToString();
+            txtOrganizacionId.Text = resultado.OrganizacionId?.ToString() ?? "";
         }
     }
 
@@ -54,44 +57,37 @@ public partial class TiendaArticulos : ContentPage
             Existencia = double.Parse(txtExistencia.Text),
             PrecioUnitario = double.Parse(txtPrecioUnitario.Text),
             IVA = double.Parse(txtIVA.Text),
-            OrganizacionId = string.IsNullOrWhiteSpace(txtOrganizacionId.Text) ? null : int.Parse(txtOrganizacionId.Text)
+            OrganizacionId = string.IsNullOrWhiteSpace(txtOrganizacionId.Text) ? (int?)null : int.Parse(txtOrganizacionId.Text)
         };
 
-        var resultado =  ApiConsumer<Articulo>.Update(ApiUrlArticulos, id, articulo);
+        var resultado =   ApiConsumer<Articulo>.Update(ApiUrlArticulos, id, articulo);
         if (resultado != null)
         {
-            // Actualizar la interfaz de usuario
+            txtNombre.Text = resultado.Nombre; // Asumiendo que deseas actualizar la vista con la información actualizada
         }
     }
 
     private async void btnEliminarArticulo_Clicked(object sender, EventArgs e)
     {
         int id = int.Parse(txtIdArticulo.Text);
-         ApiConsumer<Articulo>.Delete(ApiUrlArticulos, id);
-        // Limpiar la interfaz de usuario después de eliminar el artículo
+          ApiConsumer<Articulo>.Delete(ApiUrlArticulos, id);
+        txtIdArticulo.Text = "";
+        txtNombre.Text = "";
+        txtExistencia.Text = "";
+        txtPrecioUnitario.Text = "";
+        txtIVA.Text = "";
+        txtOrganizacionId.Text = "";
     }
-    // Método para crear una nueva Organizacion
+
+    // Métodos para Organizaciones
     private async void btnGuardarOrganizacion_Clicked(object sender, EventArgs e)
     {
         var organizacion = new Organizacion
         {
-            // Asumiendo que tienes Entry para la descripción
             Descripcion = txtDescripcion.Text
         };
 
-        var resultado =  ApiConsumer<Organizacion>.Create(ApiUrlOrganizaciones, organizacion);
-        if (resultado != null)
-        {
-            txtIdOrganizacion.Text = resultado.Id.ToString(); // Actualizar la interfaz de usuario con el ID de la organización creada
-            txtDescripcion.Text = resultado.Descripcion;
-        }
-    }
-
-    // Método para leer una Organizacion por ID
-    private async void btnLeerOrganizacion_Clicked(object sender, EventArgs e)
-    {
-        int id = int.Parse(txtIdOrganizacion.Text);
-        var resultado =  ApiConsumer<Organizacion>.Read(ApiUrlOrganizaciones, id);
+        var resultado =   ApiConsumer<Organizacion>.Create(ApiUrlOrganizaciones, organizacion);
         if (resultado != null)
         {
             txtIdOrganizacion.Text = resultado.Id.ToString();
@@ -99,7 +95,17 @@ public partial class TiendaArticulos : ContentPage
         }
     }
 
-    // Método para actualizar una Organizacion
+    private async void btnLeerOrganizacion_Clicked(object sender, EventArgs e)
+    {
+        int id = int.Parse(txtIdOrganizacion.Text);
+        var resultado =   ApiConsumer<Organizacion>.Read(ApiUrlOrganizaciones, id);
+        if (resultado != null)
+        {
+            txtIdOrganizacion.Text = resultado.Id.ToString();
+            txtDescripcion.Text = resultado.Descripcion;
+        }
+    }
+
     private async void btnActualizarOrganizacion_Clicked(object sender, EventArgs e)
     {
         int id = int.Parse(txtIdOrganizacion.Text);
@@ -109,22 +115,18 @@ public partial class TiendaArticulos : ContentPage
             Descripcion = txtDescripcion.Text
         };
 
-        var resultado =  ApiConsumer<Organizacion>.Update(ApiUrlOrganizaciones, id, organizacion);
+        var resultado =   ApiConsumer<Organizacion>.Update(ApiUrlOrganizaciones, id, organizacion);
         if (resultado != null)
         {
-            txtDescripcion.Text = resultado.Descripcion; // Actualizar la interfaz de usuario con la nueva descripción
+            txtDescripcion.Text = resultado.Descripcion;
         }
     }
 
-    // Método para eliminar una Organizacion
     private async void btnEliminarOrganizacion_Clicked(object sender, EventArgs e)
     {
         int id = int.Parse(txtIdOrganizacion.Text);
-        ApiConsumer<Organizacion>.Delete(ApiUrlOrganizaciones, id);
-        txtIdOrganizacion.Text = ""; // Limpiar los campos después de la eliminación
+          ApiConsumer<Organizacion>.Delete(ApiUrlOrganizaciones, id);
+        txtIdOrganizacion.Text = "";
         txtDescripcion.Text = "";
     }
-
-
 }
-

@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExamenAppMovilesPozoCarlos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+6dfd5e03a2f47a584c32cf67f575fbe4f42c0d4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExamenAppMovilesPozoCarlos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExamenAppMovilesPozoCarlos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

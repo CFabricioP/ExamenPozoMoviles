@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\Dell\source\repos\CloudComputing\ExamenAppMovilesPozoCarlos\ExamenAppMovilesPozoCarlos\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-05-16T18:48:01.539</Modified>
+      <Modified>2024-05-16T19:17:11.456</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Dell\source\repos\CloudComputing\ExamenAppMovilesPozoCarlos\ExamenAppMovilesPozoCarlos\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-05-16T18:47:45.459</Modified>
+      <Modified>2024-05-16T19:12:03.855</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dell\source\repos\CloudComputing\ExamenAppMovilesPozoCarlos\ExamenAppMovilesPozoCarlos\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExamenAppMovilesPozoCarlos.runtimeconfig.json">
       <PackagePath>ExamenAppMovilesPozoCarlos.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dell\source\repos\CloudComputing\ExamenAppMovilesPozoCarlos\ExamenAppMovilesPozoCarlos\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExamenAppMovilesPozoCarlos.dll">
       <PackagePath>ExamenAppMovilesPozoCarlos.dll</PackagePath>
-      <Modified>2024-05-16T18:48:00.989</Modified>
+      <Modified>2024-05-16T19:17:10.980</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dell\source\repos\CloudComputing\ExamenAppMovilesPozoCarlos\ExamenAppMovilesPozoCarlos\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ExamenAppMovilesPozoCarlos.exe</PackagePath>
-      <Modified>2024-05-16T18:48:00.996</Modified>
+      <Modified>2024-05-16T19:17:10.988</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dell\source\repos\CloudComputing\ExamenAppMovilesPozoCarlos\ExamenAppMovilesPozoCarlos\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
