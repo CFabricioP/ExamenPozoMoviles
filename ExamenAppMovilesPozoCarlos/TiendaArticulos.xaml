@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenAppMovilesPozoCarlos.TiendaArticulos"
+             Title="TiendaArticulos">
+
+    <VerticalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="GuardarArticulo" x:Name="btnGuardarArticulo" Clicked="btnGuardarArticulo_Clicked"/>
+            <Button Text="LeerArticulo" x:Name="btnLeerArticulo" Clicked="btnLeerArticulo_Clicked"/>
+            <Button Text="ActualizarArticulo" x:Name="btnActualizarArticulo" Clicked="btnActualizarArticulo_Clicked"/>
+            <Button Text="EliminarArticulo" x:Name="btnEliminarArticulo" Clicked="btnEliminarArticulo_Clicked"/>
+        </HorizontalStackLayout>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="25" Padding="30">
+                <Entry x:Name="txtIdArticulo" Placeholder="Introduce el ID del artículo" FontSize="Small" Margin="0,0,0,10"/>
+                <Entry x:Name="txtNombre" Placeholder="Introduce el nombre del artículo" FontSize="Small" Margin="0,0,0,10"/>
+                <Entry x:Name="txtExistencia" Placeholder="Introduce la existencia" FontSize="Small" Margin="0,0,0,10" Keyboard="Numeric"/>
+                <Entry x:Name="txtPrecioUnitario" Placeholder="Introduce el precio unitario" FontSize="Small" Margin="0,0,0,10" Keyboard="Numeric"/>
+                <Entry x:Name="txtIVA" Placeholder="Introduce el IVA" FontSize="Small" Margin="0,0,0,10" Keyboard="Numeric"/>
+                <Entry x:Name="txtOrganizacionId" Placeholder="Introduce el ID de la organización" FontSize="Small" Margin="0,0,0,10" Keyboard="Numeric"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="GuardarOrganizacion" x:Name="btnGuardarOrganizacion" Clicked="btnGuardarOrganizacion_Clicked"/>
+            <Button Text="LeerOrganizacion" x:Name="btnLeerOrganizacion" Clicked="btnLeerOrganizacion_Clicked"/>
+            <Button Text="ActualizarOrganizacion" x:Name="btnActualizarOrganizacion" Clicked="btnActualizarOrganizacion_Clicked"/>
+            <Button Text="EliminarOrganizacion" x:Name="btnEliminarOrganizacion" Clicked="btnEliminarOrganizacion_Clicked"/>
+        </HorizontalStackLayout>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="25" Padding="30">
+                <Entry x:Name="txtIdOrganizacion" Placeholder="Introduce el ID de la organización" FontSize="Small" Margin="0,0,0,10" Keyboard="Numeric"/>
+                <Entry x:Name="txtDescripcion" Placeholder="Introduce la descripción de la organización" FontSize="Small" Margin="0,0,0,10"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </VerticalStackLayout>
+</ContentPage>
